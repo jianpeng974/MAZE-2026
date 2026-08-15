@@ -9,6 +9,10 @@ int col = 20;
 int matriz[lin][col] = 0;
 int pos_x, pos_y;
 
+int contador_mov = 0;
+
+char vetor_mov[50] = {}
+
 //estabelecer a direçao que esta    //direita e esquerda (sentido)
 int atualizar_dir(int dir_atual, char sentido) {
   if (sentido == "e") {
@@ -111,8 +115,6 @@ uint16_t dist_o = 0;
 int tam_vet = 50;
 
 char vet_mov [tam_vet] = 0;
-
-char vetor_mov[    ]
 
 //revisar sabado
 
@@ -285,22 +287,36 @@ void loop() {
 
   if (dist_l >= 20 && nao_visitado(matriz[pos_y][pos_x], pos_x, pos_y, dir_atual, "d")) {
     dir(1800);  //subistituir por constante quando tiver
+    vetor_mov[contador_mov] = "d";
+    contador_mov += 1;
     dir_atual = atualizar_dir(dir_atual, "d");  //*** sobre atualizar os valores
     frente(1800);
+    vetor_mov[contador_mov] = "f";
+    contador_mov += 1;
   }
 
   else if (dist_n >= 20 && nao_visitado(matriz[pos_y][pos_x], pos_x, pos_y, dir_atual, "f")) {
     frente(1800);  //frente
+    vetor_mov[contador_mov] = "f";
+    contador_mov += 1;
   }
 
   else if (dist_o >= 20 && nao_visitado(matriz[pos_y][pos_x], pos_x, pos_y,   dir_atual, "e")) {
     esq(1800);  //esquerda
+    vetor_mov[contador_mov] = "e";
+    contador_mov += 1;
     dir_atual = atualizar_dir(dir_atual, "e");  //*** sobre atualizar os valores
     frente(1800);
+    vetor_mov[contador_mov] = "f";
+    contador_mov += 1;
   }
 
   else {
     tras(1800)//tras
+    contador_mov -= 1;
+    vetor_mov[contador_mov] = "t";
+    contador_mov += 1;
+    
   }
 }
 
