@@ -17,7 +17,7 @@ Prata:
 Adafruit_TCS34725 tcs = Adafruit_TCS34725(TCS34725_INTEGRATIONTIME_614MS, TCS34725_GAIN_1X);
 int rp_min, rp_max, gp_min, gp_max
 
-                              rpr_min = 1;
+rpr_min = 1;
 rpr_max = 10;
 gpr_min = 1;
 gpr_max = 10;
@@ -31,12 +31,12 @@ gsil_max = 51;
 bsil_min = 29;
 bsil_max = 33;
 
-raz_min = 55;
-raz_max = 63;
-gaz_min = 48;
-gaz_max = 51;
-baz_min = 29;
-baz_max = 33;
+raz_min = 6;
+raz_max = 13;
+gaz_min = 6;
+gaz_max = 13;
+baz_min = 6;
+baz_max = 13;
 
 bool calibrar = 0
 
@@ -87,25 +87,11 @@ void loop() {
     colorTemp = tcs.calculateColorTemperature_dn40(r, g, b, c);
     lux = tcs.calculateLux(r, g, b);
 
-    Serial.print("Color Temp: ");
-    Serial.print(colorTemp, DEC);
-    Serial.print(" K - ");
-    Serial.print("Lux: ");
-    Serial.print(lux, DEC);
-    Serial.print(" - ");
-    Serial.print("R: ");
-    Serial.print(r, DEC);
-    Serial.print(" ");
-    Serial.print("G: ");
-    Serial.print(g, DEC);
-    Serial.print(" ");
-    Serial.print("B: ");
-    Serial.print(b, DEC);
-    Serial.print(" ");
-    Serial.print("C: ");
-    Serial.print(c, DEC);
-    Serial.print(" ");
-    Serial.println(" ");
+    Serial.print("Color Temp: ");Serial.print(colorTemp, DEC);Serial.print(" K - ");
+    Serial.print("Lux: ");Serial.print(lux, DEC);Serial.print(" - ");Serial.print("R: ");
+    Serial.print(r, DEC);Serial.print(" ");Serial.print("G: ");Serial.print(g, DEC);
+    Serial.print(" ");Serial.print("B: ");Serial.print(b, DEC);Serial.print(" ");
+    Serial.print("C: ");Serial.print(c, DEC);Serial.print(" ");Serial.println(" ");
   }
 
 //enquanto n calibra
