@@ -110,7 +110,11 @@ void loop() {
 
     //Prata
     if (silver()) {
-      //reset
+      //botao Display
+      //Todos os movimentos apartir do prata para frente serão deletados
+      //lista de movimentos adiciona ponto 
+      
+
     }
 
     if (azul()) {
